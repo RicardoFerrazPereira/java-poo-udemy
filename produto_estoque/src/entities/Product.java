@@ -2,11 +2,10 @@ package entities;
 
 public class Product {
 
-	public String name;
-	public double price;
-	public int quantity;
-	
-	
+	private String name;
+	private double price;
+	private int quantity;
+
 	public Product(String name, double price, int quantity) {
 		super();
 		this.name = name;
@@ -14,6 +13,38 @@ public class Product {
 		this.quantity = quantity;
 	}
 
+	public Product() {
+
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+	
+	//Encapsulamento -  Proteger o objeto produto de alterações inconsistentes - A quantidade 
+	// só pode ser alterada quando houver uma entrada ou saída no estoque - por isso não criamos 
+	// o "setQuantity"
+	
+//	public void setQuantity(int quantity) {
+//		this.quantity = quantity;
+//	}
+	
 	public double totalValueInStock() {
 		return price * quantity;
 	}
@@ -28,7 +59,11 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return name + ", $ " + String.format("%.2f", price) + ", " + quantity + " units, Total: $ "
+		return name 
+				+ ", $ " 
+				+ String.format("%.2f", price) 
+				+ ", " 
+				+ quantity + " units, Total: $ "
 				+ String.format("%.2f", totalValueInStock());
 	}
 
